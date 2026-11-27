@@ -1,6 +1,6 @@
 {
   "name": "@offerhub-orchestrator/adapter-trustlesswork",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "NestJS adapter for Trustless Work Soroban escrows on Stellar: escrow REST client, Stellar RPC client and wallet balances, with no dependency on the rest of OfferHub",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
