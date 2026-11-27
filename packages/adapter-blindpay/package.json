@@ -1,0 +1,49 @@
+{
+  "name": "@offerhub-orchestrator/adapter-blindpay",
+  "version": "0.1.3",
+  "description": "NestJS adapter for BlindPay USDC-to-fiat payouts: customers and KYC, bank accounts for the supported LATAM corridors, quotes and payouts, with no dependency on the rest of OfferHub",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "jest --config ../../jest.config.js --rootDir ../.. --testPathPatterns packages/adapter-blindpay/",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "nestjs",
+    "blindpay",
+    "payouts",
+    "off-ramp",
+    "usdc",
+    "stellar"
+  ],
+  "author": "OfferHub",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OFFER-HUB/offerhub-integrations.git",
+    "directory": "packages/adapter-blindpay"
+  },
+  "homepage": "https://github.com/OFFER-HUB/offerhub-integrations/tree/main/packages/adapter-blindpay#readme",
+  "bugs": {
+    "url": "https://github.com/OFFER-HUB/offerhub-integrations/issues"
+  },
+  "engines": {
+    "node": ">=20.19"
+  },
+  "dependencies": {
+    "ky": "^1.14.2"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^10.0.0",
+    "reflect-metadata": "^0.1.13 || ^0.2.0"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "name": "@offerhub-orchestrator/adapter-trustlesswork",
+  "version": "0.1.3",
+  "description": "NestJS adapter for Trustless Work Soroban escrows on Stellar: escrow REST client, Stellar RPC client and wallet balances, with no dependency on the rest of OfferHub",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "jest --config ../../jest.config.js --rootDir ../.. --testPathPatterns packages/adapter-trustlesswork/",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "nestjs",
+    "stellar",
+    "soroban",
+    "escrow",
+    "trustless-work",
+    "usdc"
+  ],
+  "author": "OfferHub",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OFFER-HUB/offerhub-integrations.git",
+    "directory": "packages/adapter-trustlesswork"
+  },
+  "homepage": "https://github.com/OFFER-HUB/offerhub-integrations/tree/main/packages/adapter-trustlesswork#readme",
+  "bugs": {
+    "url": "https://github.com/OFFER-HUB/offerhub-integrations/issues"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "big.js": "^7.0.1"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^10.0.0",
+    "@stellar/stellar-sdk": "^14.4.3",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.0 || ^0.15.0",
+    "reflect-metadata": "^0.1.13 || ^0.2.0"
+  },
+  "devDependencies": {
+    "@types/big.js": "^6.2.2"
+  }
+}

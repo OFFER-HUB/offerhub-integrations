@@ -1,0 +1,32 @@
+{
+  "name": "@offerhub/sdk",
+  "version": "3.0.0",
+  "description": "Official TypeScript SDK for OFFER-HUB Orchestrator \u2014 Stellar escrow, client-side signing and BlindPay payouts for marketplaces",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "keywords": [
+    "offerhub",
+    "sdk",
+    "escrow",
+    "stellar",
+    "soroban",
+    "marketplace",
+    "trustless-work",
+    "blindpay"
+  ],
+  "author": "OfferHub",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}

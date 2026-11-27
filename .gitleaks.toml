@@ -1,0 +1,13 @@
+# Secret scanning config. Runs in CI on every push and pull request, and locally:
+#   gitleaks git --log-opts="--all" --redact -c .gitleaks.toml .
+# Every allowlist entry below was reviewed by hand.
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Reviewed false positives"
+paths = [
+  # Unit-test fixture: a made-up API key (abc123XYZ…) that exists only to exercise key-id parsing
+  '''packages/sdk/src/__tests__/offerhub-sdk\.spec\.ts''',
+]
