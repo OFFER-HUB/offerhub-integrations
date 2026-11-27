@@ -67,6 +67,16 @@ export class PublishError extends Error {}
  * Publishes every finished run to the API's public results endpoint (#318),
  * which offer-hub.org/stats reads. Re-publishing the same run id replaces it.
  */
+/**
+ * A run that refused to start (the buyer's balance is below the floor, say) moved nothing and tested
+ * nothing, so it is not a validation result: publishing it would put a "failed" row on the public
+ * stats page for a funding problem. The CLI still exits non-zero, so the workflow shows it.
+ */
+export function neverStarted(report: RunReport): boolean {
+    const first = report.steps[0];
+    return first?.name === 'preflight' && first.status === 'failed';
+}
+
 export class ApiReporter implements Reporter {
     constructor(
         private readonly apiUrl: string,
@@ -75,6 +85,10 @@ export class ApiReporter implements Reporter {
     ) {}
 
     async publish(report: RunReport): Promise<void> {
+        if (neverStarted(report)) {
+            console.warn(`Run ${report.id} did not pass preflight, so it is not published to the stats endpoint`);
+            return;
+        }
         const res = await this.post(`${this.apiUrl}/validation/runs`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'X-Validation-Token': this.token },
